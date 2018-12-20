@@ -1,8 +1,6 @@
 # Spring Boot Restful Web Services Example
 
-Guide
 
-This is a part of the tutorial http://javabycode.com/spring-framework-tutorial/spring-boot-tutorial/spring-boot-restful-web-services-example.html
 
 What you'll need
 
