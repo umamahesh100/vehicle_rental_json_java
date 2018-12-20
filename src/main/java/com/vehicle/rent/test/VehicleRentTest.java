@@ -160,6 +160,7 @@ public class VehicleRentTest {
 	}
 
 	@SuppressWarnings({ "unchecked", "unused" })
+	@Test
 	public void testGetCarsByHighestRevenue() throws Exception {
 
 		URL url = new URL(endPointUlr + "/cars/highestrevenue");
