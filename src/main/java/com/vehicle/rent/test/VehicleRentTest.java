@@ -17,17 +17,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class VehicleRentTest {
 
+	private String endPointUlr = "http://localhost:8096";
 
-
-	/**
-	 *  below  testAllCars method is used to print all the Cars avaiblable in json format . runtimeException will be thrown incase of failure   
+	/*
+	 * below testAllCars method is used to print all the Cars avaiblable in json
+	 * format . runtimeException will be thrown incase of failure
 	 */
+
 	@Test
-	public void testGetAllCars(){
+	public void testGetAllCars() {
 
 		try {
 
-			URL url = new URL("http://localhost:8080/getCars");
+			URL url = new URL(endPointUlr + "/getCars");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -37,11 +39,11 @@ public class VehicleRentTest {
 			System.out.println("All Cars:");
 			ObjectMapper mapper = new ObjectMapper();
 			Map<String, Object> map = testReadCarsJsonFromClassPath(conn.getInputStream());
-			
+
 			/**
 			 * printing the cars of Map in JSON format using Pretty print Json
 			 */
-			
+
 			System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map.get("Cars")));
 			System.out.println("========================");
 
@@ -58,9 +60,11 @@ public class VehicleRentTest {
 		}
 
 	}
-	/**
-	 * 	below  printCarsbyColorModel method  is used to print the cars with perticular Make and Color, runtimeException will be thrown incase of failure   
 
+	/**
+	 * below printCarsbyColorModel method is used to print the cars with perticular
+	 * Make and Color, runtimeException will be thrown incase of failure
+	 * 
 	 * @throws Exception
 	 */
 	@SuppressWarnings("unchecked")
@@ -71,7 +75,7 @@ public class VehicleRentTest {
 			String testData_Color = "black";
 			String testData_Make = "tesla";
 
-			URL url = new URL("http://localhost:8080/getCars");
+			URL url = new URL(endPointUlr + "/cars/" + testData_Make + "/" + testData_Color);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Accept", "application/json");
@@ -106,11 +110,12 @@ public class VehicleRentTest {
 		}
 
 	}
+
 	@SuppressWarnings("unchecked")
 	@Test
 	public void testGetCarsByLowestPriceAfterDiscount() throws Exception {
-		
-		URL url = new URL("http://localhost:8080/cars/lesspriceafterdiscount");
+
+		URL url = new URL(endPointUlr + "/cars/lesspriceafterdiscount");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Accept", "application/json");
@@ -118,7 +123,7 @@ public class VehicleRentTest {
 			throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
 		}
 
-		Map<String, Object> carsMap =  testReadCarsJsonFromClassPath(conn.getInputStream());
+		Map<String, Object> carsMap = testReadCarsJsonFromClassPath(conn.getInputStream());
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Map<String, Object>> filterdCarsList = new ArrayList<Map<String, Object>>();
 
@@ -157,7 +162,7 @@ public class VehicleRentTest {
 	@SuppressWarnings({ "unchecked", "unused" })
 	public void testGetCarsByHighestRevenue() throws Exception {
 
-		URL url = new URL("http://localhost:8080/cars/highestrevenue");
+		URL url = new URL(endPointUlr + "/cars/highestrevenue");
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 		conn.setRequestMethod("GET");
 		conn.setRequestProperty("Accept", "application/json");
@@ -165,7 +170,7 @@ public class VehicleRentTest {
 			throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
 		}
 
-		Map<String, Object> carsMap =  testReadCarsJsonFromClassPath(conn.getInputStream());
+		Map<String, Object> carsMap = testReadCarsJsonFromClassPath(conn.getInputStream());
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		List<Map<String, Object>> filterdCarsList = new ArrayList<Map<String, Object>>();
 		List<Map<String, Object>> carsList = (List<Map<String, Object>>) carsMap.get("Cars");
@@ -182,7 +187,7 @@ public class VehicleRentTest {
 				firstRecordFlag = false;
 				continue;
 			}
-			depreciation =(Double) highRevenueMap.get("depreciation");
+			depreciation = (Double) highRevenueMap.get("depreciation");
 			if (((Double) highRevenueMap.get("depreciation")) + yoyMaintenance == expences) {
 				filterdCarsList.add(map);
 			}
@@ -199,10 +204,11 @@ public class VehicleRentTest {
 		System.out.println("======================================");
 		System.out.println(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(resultMap));
 		System.out.println("======================================");
-		
+
 	}
 
-	
+	/* below readCarsJsonFromClassPath */
+
 	private Map<String, Object> testReadCarsJsonFromClassPath(InputStream input) {
 		ObjectMapper objectMapper = new ObjectMapper();
 
