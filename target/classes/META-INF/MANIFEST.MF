@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: umamahesh.rd
+Build-Jdk: 11.0.1
+Implementation-Title: spring-boot-restful-web-services-example
+Implementation-Version: 1.0.0
+Implementation-Vendor-Id: com.javabycode.springboot
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/spring-boot-restful-web-services-example
+Created-By: Maven Integration for Eclipse
+
