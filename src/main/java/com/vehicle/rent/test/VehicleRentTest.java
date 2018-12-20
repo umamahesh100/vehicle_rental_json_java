@@ -80,7 +80,7 @@ public class VehicleRentTest {
 			}
 			Map<String, Object> responseMap = testReadCarsJsonFromClassPath(conn.getInputStream());
 			List<Map<String, Object>> carsList = (List<Map<String, Object>>) responseMap.get("Cars");
-
+			System.out.println("Response-cars matching the Make:"+testData_Make+" and Color:"+testData_Color+" criteria!");
 			for (Map<String, Object> map : carsList) {
 				if (((String) map.get("make")).equalsIgnoreCase(testData_Make)) {
 					Map<String, String> medaDataMap = (Map<String, String>) map.get("metadata");
@@ -93,6 +93,7 @@ public class VehicleRentTest {
 					}
 				}
 			}
+			System.out.println("===================================================");
 			conn.disconnect();
 
 		} catch (MalformedURLException e) {
