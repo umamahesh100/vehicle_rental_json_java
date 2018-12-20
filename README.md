@@ -28,3 +28,4 @@ Run
 
 for UNIT testing got to package com.vehicle.rent.test , right click on class VehicleRentTest.java & run as Junit
 
+# vehicle_rental_json_java
