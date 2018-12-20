@@ -9,8 +9,8 @@
         "Notes": "Scratches on the Right side of the car"
       },
       "perdayrent": {
-        "Price": 140,
-        "Discount": 15
+        "Price": 160.00,
+        "Discount": 15.00
       },
       "metrics": {
         "yoymaintenancecost": 2190.76,
@@ -30,8 +30,8 @@
         "Notes": "Scratches on the back side of the car"
       },
       "perdayrent": {
-        "Price": 240,
-        "Discount": 25
+        "Price": 240.00,
+        "Discount": 25.00
       },
       "metrics": {
         "yoymaintenancecost": 2790.76,
@@ -51,12 +51,12 @@
         "Notes": "Scratches on the left side of the car"
       },
       "perdayrent": {
-        "Price": 150,
-        "Discount": 18
+        "Price": 150.00,
+        "Discount": 18.00
       },
       "metrics": {
-        "yoymaintenancecost": 2140.76,
-        "depreciation": 2216.43,
+        "yoymaintenancecost": 1240.76,
+        "depreciation": 1216.43,
         "rentalcount": {
           "lastweek": 2,
           "yeartodate": 241
@@ -72,12 +72,12 @@
         "Notes": "Scratches on the rear side of the car"
       },
       "perdayrent": {
-        "Price": 150,
-        "Discount": 18
+        "Price": 150.00,
+        "Discount": 18.00
       },
       "metrics": {
         "yoymaintenancecost": 2140.76,
-        "depreciation": 2216.43,
+        "depreciation": 2206.43,
         "rentalcount": {
           "lastweek": 2,
           "yeartodate": 241
