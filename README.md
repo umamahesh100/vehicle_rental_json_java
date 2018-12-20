@@ -19,11 +19,11 @@ Run
 
     To Test the application in browser or postman please enter the URL
     
-    http://localhost:8080/cars/{make}/{color} 
-    http://localhost:8080/getCars
-    http://localhost:8080/cars/highestrevenue
-    http://localhost:8080/cars/lesspricecars
-    http://localhost:8080/cars/lesspriceafterdiscount
+    http://localhost:8096/cars/{make}/{color} 
+    http://localhost:8096/getCars
+    http://localhost:8096/cars/highestrevenue
+    http://localhost:8096/cars/lesspricecars
+    http://localhost:8096/cars/lesspriceafterdiscount
 
 
 for UNIT testing got to package com.vehicle.rent.test , right click on class VehicleRentTest.java & run as Junit
