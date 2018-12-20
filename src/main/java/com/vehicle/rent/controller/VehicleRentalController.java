@@ -17,12 +17,12 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @RestController
-@RequestMapping("/")
 public class VehicleRentalController {
 
-	/**
+	/*
 	 * getAllCars() method gets executed with url http://localhost:8080/getCars
-	 * @return list of cars
+	 * which in tun calls the method readCarsJsonFromClassPath andreturns
+	 * ResponseEntity Map which contains the Cars JSON data
 	 */
 
 	@RequestMapping(value = "/getCars", method = RequestMethod.GET)
@@ -73,7 +73,7 @@ public class VehicleRentalController {
 	 * @return List of Cars
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "cars/lesspricecars", method = RequestMethod.GET)
+	@RequestMapping(value = "/cars/lesspricecars", method = RequestMethod.GET)
 	public ResponseEntity<?> getCarsByLowestPrice() {
 
 		Map<String, Object> carsMap = readCarsJsonFromClassPath();
@@ -114,7 +114,7 @@ public class VehicleRentalController {
 	 * @return List of Cars
 	 */
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value = "cars/lesspriceafterdiscount", method = RequestMethod.GET)
+	@RequestMapping(value = "/cars/lesspriceafterdiscount", method = RequestMethod.GET)
 	public ResponseEntity<?> getCarsByLowestPriceAfterDiscount() {
 
 		Map<String, Object> carsMap = readCarsJsonFromClassPath();
@@ -149,11 +149,9 @@ public class VehicleRentalController {
 		return new ResponseEntity<Object>(resultMap, HttpStatus.OK);
 
 	}
-	/**
-	 * @return list of cars with least maintenance cost
-	 */
 
-	@RequestMapping(value = "cars/highestrevenue", method = RequestMethod.GET)
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value = "/cars/highestrevenue", method = RequestMethod.GET)
 	public ResponseEntity<?> getCarsByHighestRevenue() {
 
 		Map<String, Object> carsMap = readCarsJsonFromClassPath();
@@ -174,7 +172,7 @@ public class VehicleRentalController {
 				firstRecordFlag = false;
 				continue;
 			}
-			depreciation =(Double) highRevenueMap.get("depreciation");
+			depreciation = (Double) highRevenueMap.get("depreciation");
 			if (((Double) highRevenueMap.get("depreciation")) + yoyMaintenance == expences) {
 				filterdCarsList.add(map);
 			}
@@ -193,7 +191,9 @@ public class VehicleRentalController {
 
 	/**
 	 * readCarsJsonFromClassPath method is used to get the json data from json file
-	 * useing ObjectMapper calss from Jackson API . Data was read into objectMapper ,which in turn set to Map
+	 * useing ObjectMapper calss from Jackson API . Data was read into objectMapper
+	 * ,which in turn set to Map
+	 * 
 	 * @return
 	 */
 
